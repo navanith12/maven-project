@@ -9,7 +9,8 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-             withCredentials([usernamePassword(credentialsId: 'PCF_LOGIN', usernameVariable: 'thisisnikhil86@gmail.com', passwordVariable: 'Super@8515')]) {
+             withCredentials([usernamePassword(credentialsId: 'PCF_LOGIN', usernameVariable: 'thisisnikhil86@gmail.com', passwordVariable: 'Super@8515')]) 
+		    {
   // available as an env variable, but will be masked if you try to print it out any which way
   // note: single quotes prevent Groovy interpolation; expansion is by Bourne Shell, which is what you want
   sh 'echo $PASSWORD'
