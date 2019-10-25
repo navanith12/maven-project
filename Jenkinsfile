@@ -9,14 +9,15 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                                  credentialsId   : 'PCF_LOGIN',
-                                  usernameVariable: 'thisisnikhil86@gmail.com',
-                                  passwordVariable: 'Super@8515']]) {
-
-                    bat "C:/Program Files/Cloud Foundry/cf login -a http://api.run.pivotal.io -u $USERNAME -p $PASSWORD"
-		
-                    bat "C:/Program Files/Cloud Foundry/cf push"
+             withCredentials([usernamePassword(credentialsId: 'PCF_LOGIN', usernameVariable: 'thisisnikhil86@gmail.com', passwordVariable: 'Super@8515')]) {
+  // available as an env variable, but will be masked if you try to print it out any which way
+  // note: single quotes prevent Groovy interpolation; expansion is by Bourne Shell, which is what you want
+  sh 'echo $PASSWORD'
+  // also available as a Groovy variable
+  echo USERNAME
+  // or inside double quotes for string interpolation
+  echo "username is $USERNAME"
+}
 		}
     }
             }
