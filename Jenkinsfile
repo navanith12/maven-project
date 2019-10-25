@@ -9,11 +9,8 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-             withCredentials([usernamePassword(credentialsId: 'PCF_LOGIN',
-                     usernameVariable: 'thisisnikhil86@gmail.com', passwordVariable: 'Super@8515')]) {
-    //available as an env variable, but will be masked if you try to print it out any which way
-    sh 'echo $PASSWORD'
-    echo "${env.USERNAME}"
+             withCredentials([usernameColonPassword(credentialsId: 'PCF_LOGIN', variable: 'PCF_LOGIN')]) {
+    // some block
 }
     }
             }
