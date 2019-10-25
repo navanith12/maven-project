@@ -1,0 +1,6 @@
+---
+applications:
+- name: docker-example
+  instances: 1
+  memory: 800m
+  path: target/webapp.war
