@@ -9,7 +9,6 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-
                 withCredentials([[$class          : 'UsernamePasswordMultiBinding',
                                   credentialsId   : 'PCF_LOGIN',
                                   usernameVariable: 'thisisnikhil86@gmail.com',
