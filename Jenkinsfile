@@ -13,6 +13,7 @@ pipeline {
     // some block
                  sh 'cf login -a http://api.run.pivotal.io -u thisisnikhil86@gmail.com -p Super@8515'
                  sh 'cf login -u thisisnikhil86@gmail.com -p Super@8515 -o nik -s development'
+                 sh 'cf push'          
 }
     }
             }
